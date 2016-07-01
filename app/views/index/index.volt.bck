@@ -1,0 +1,24 @@
+{{ content() }}
+
+<div class="jumbotron">
+    <h1>Bem vindo ao OfiGest</h1>
+    <p>O OfiGest é uma aplicação revolucionária para gerir oficinas, melhore a sua relação com os clientes utilizando a Internet. Facilite o seu fluxo de trabalho, controlando o agendamento de manutenções, adicionando lembretes e permitindo o acesso aos seus clientes do estado das suas viaturas.</p>
+    <p>{{ link_to('session/signup', 'Tente Gratuitamente', 'class': 'btn btn-primary btn-large btn-success') }}</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Facilite o seu fluxo de trabalho</h2>
+        <p>Permita que os seus clientes agendem e controlem as suas manutenções e reparações em hórarios mutuamente benéficos, aumente a recorrencia de clientes, criando lembretes automáticos das manutenções e inspeções dos seus veículos por email ou SMS.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Integração e acessibilidade</h2>
+        <p>Integre os dados do OfiGest com o(s) seu(s), site, programa de Gestão e Contabilidade.</p>
+        <p>Aceda facilmente de forma remota, em qualquer dispositivo, á sua plataforma.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Seguro e fácil</h2>
+        <p>Convide os seus parceiros e clientes a aderir á sua plataforma, distribua a carga de trabalho por múltiplos utilizadores utilizando grupos e permissões.</p>
+        <p>Começe agora mesmo a gerir o seu negócio de uma forma mais produtiva e eficiente, contate-nos. </p>
+    </div>
+</div>

@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - OfiGest@localhost" uuid="2b95cd01-8dba-4f5e-b05d-a8cb4711f9a4">
+    <database-info product="MySQL" version="5.5.47-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="OfiGest"/>
+      <table id="2" parent="1" name="clientes"/>
+      <table id="3" parent="1" name="clientes_veiculos"/>
+      <table id="4" parent="1" name="contact"/>
+      <table id="5" parent="1" name="email_confirmations"/>
+      <table id="6" parent="1" name="failed_logins"/>
+      <table id="7" parent="1" name="intervencoes"/>
+      <table id="8" parent="1" name="intervencoes_tipos"/>
+      <table id="9" parent="1" name="manutencoes"/>
+      <table id="10" parent="1" name="marcas"/>
+      <table id="11" parent="1" name="modelos"/>
+      <table id="12" parent="1" name="password_changes"/>
+      <table id="13" parent="1" name="permissions"/>
+      <table id="14" parent="1" name="profiles"/>
+      <table id="15" parent="1" name="remember_tokens"/>
+      <table id="16" parent="1" name="reset_passwords"/>
+      <table id="17" parent="1" name="success_logins"/>
+      <table id="18" parent="1" name="users"/>
+      <table id="19" parent="1" name="utilizadores"/>
+      <table id="20" parent="1" name="veiculos"/>
+      <column id="21" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="22" parent="2" name="nome">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="23" parent="2" name="morada">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="24" parent="2" name="telefone">
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="25" parent="2" name="telemovel">
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="26" parent="2" name="email">
+        <data-type>varchar(75)</data-type>
+      </column>
+      <column id="27" parent="2" name="NIF">
+        <data-type>int(9)</data-type>
+      </column>
+      <key id="28" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="29" parent="3" name="id_cliente">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="30" parent="3" name="id_veiculo">
+        <mandatory>1</mandatory>
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="31" parent="3" name="data">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <index id="32" parent="3" name="fk_clientes_veiculos_em_veiculos_idx">
+        <columns>id_veiculo</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="33" parent="3" name="PRIMARY">
+        <columns>id_cliente
+id_veiculo</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="34" parent="3" name="fk_clientes_veiculos_em_clientes">
+        <columns>id_cliente</columns>
+        <ref-key>~.clientes.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="35" parent="3" name="fk_clientes_veiculos_em_veiculos">
+        <columns>id_veiculo</columns>
+        <ref-key>~.veiculos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="36" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="37" parent="4" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(70)</data-type>
+      </column>
+      <column id="38" parent="4" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(70)</data-type>
+      </column>
+      <column id="39" parent="4" name="comments">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="40" parent="4" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <key id="41" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="42" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="43" parent="5" name="usersId">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="44" parent="5" name="code">
+        <mandatory>1</mandatory>
+        <data-type>char(32)</data-type>
+      </column>
+      <column id="45" parent="5" name="createdAt">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="46" parent="5" name="modifiedAt">
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="47" parent="5" name="confirmed">
+        <data-type>char(1)</data-type>
+        <default-expression>&apos;N&apos;</default-expression>
+      </column>
+      <key id="48" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="49" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="50" parent="6" name="usersId">
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="51" parent="6" name="ipAddress">
+        <mandatory>1</mandatory>
+        <data-type>char(15)</data-type>
+      </column>
+      <column id="52" parent="6" name="attempted">
+        <mandatory>1</mandatory>
+        <data-type>smallint(5) unsigned</data-type>
+      </column>
+      <index id="53" parent="6" name="usersId">
+        <columns>usersId</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="54" parent="6" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="55" parent="7" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="56" parent="7" name="id_manutencoes">
+        <mandatory>1</mandatory>
+        <data-type>int(9)</data-type>
+      </column>
+      <column id="57" parent="7" name="id_tipo_intervencao">
+        <mandatory>1</mandatory>
+        <data-type>int(4)</data-type>
+      </column>
+      <column id="58" parent="7" name="desc_intervencao">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="59" parent="7" name="data_intervencao">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="60" parent="7" name="custo_intervencao">
+        <mandatory>1</mandatory>
+        <data-type>double(5,2)</data-type>
+      </column>
+      <index id="61" parent="7" name="fk_intervencoes_em_manutencoes_idx">
+        <columns>id_manutencoes</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="62" parent="7" name="fk_intervencoes_em_tipo_intervencao_idx">
+        <columns>id_tipo_intervencao</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="63" parent="7" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="64" parent="7" name="fk_intervencoes_em_manutencoes">
+        <columns>id_manutencoes</columns>
+        <ref-key>~.manutencoes.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="65" parent="7" name="fk_intervencoes_em_tipo_intervencao">
+        <columns>id_tipo_intervencao</columns>
+        <ref-key>~.intervencoes_tipos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="66" parent="8" name="id_tipo_intervencao">
+        <mandatory>1</mandatory>
+        <data-type>int(4)</data-type>
+      </column>
+      <column id="67" parent="8" name="desc_tipo_intervencao">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="68" parent="8" name="PRIMARY">
+        <columns>id_tipo_intervencao</columns>
+        <primary>1</primary>
+      </key>
+      <column id="69" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(9)</data-type>
+      </column>
+      <column id="70" parent="9" name="data">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="71" parent="9" name="id_cliente">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="72" parent="9" name="id_veiculo">
+        <mandatory>1</mandatory>
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="73" parent="9" name="inspecionado_ate">
+        <data-type>date</data-type>
+      </column>
+      <column id="74" parent="9" name="kilometragem">
+        <data-type>int(6)</data-type>
+      </column>
+      <index id="75" parent="9" name="fk_manutencoes_em_clientes_idx">
+        <columns>id_cliente</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="76" parent="9" name="fk_manutencoes_em_veiculos">
+        <columns>id_veiculo</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="77" parent="9" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="78" parent="9" name="fk_manutencoes_em_clientes">
+        <columns>id_cliente</columns>
+        <ref-key>~.clientes.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="79" parent="9" name="fk_manutencoes_em_veiculos">
+        <columns>id_veiculo</columns>
+        <ref-key>~.veiculos.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="80" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(3)</data-type>
+      </column>
+      <column id="81" parent="10" name="marca">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="82" parent="10" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="83" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="84" parent="11" name="modelo">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="85" parent="11" name="marca">
+        <mandatory>1</mandatory>
+        <data-type>int(3)</data-type>
+      </column>
+      <index id="86" parent="11" name="fk_modelos_1_idx">
+        <columns>marca</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="87" parent="11" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="88" parent="11" name="fk_modelos_em_marcas">
+        <columns>marca</columns>
+        <ref-key>~.marcas.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="89" parent="12" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="90" parent="12" name="usersId">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="91" parent="12" name="ipAddress">
+        <mandatory>1</mandatory>
+        <data-type>char(15)</data-type>
+      </column>
+      <column id="92" parent="12" name="userAgent">
+        <mandatory>1</mandatory>
+        <data-type>varchar(48)</data-type>
+      </column>
+      <column id="93" parent="12" name="createdAt">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="94" parent="12" name="usersId">
+        <columns>usersId</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="95" parent="12" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="96" parent="13" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="97" parent="13" name="profilesId">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="98" parent="13" name="resource">
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="99" parent="13" name="action">
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <index id="100" parent="13" name="profilesId">
+        <columns>profilesId</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="101" parent="13" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="102" parent="14" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="103" parent="14" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="104" parent="14" name="active">
+        <mandatory>1</mandatory>
+        <data-type>char(1)</data-type>
+      </column>
+      <index id="105" parent="14" name="active">
+        <columns>active</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="106" parent="14" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="107" parent="15" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="108" parent="15" name="usersId">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="109" parent="15" name="token">
+        <mandatory>1</mandatory>
+        <data-type>char(32)</data-type>
+      </column>
+      <column id="110" parent="15" name="userAgent">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="111" parent="15" name="createdAt">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="112" parent="15" name="token">
+        <columns>token</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="113" parent="15" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="114" parent="16" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="115" parent="16" name="usersId">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="116" parent="16" name="code">
+        <mandatory>1</mandatory>
+        <data-type>varchar(48)</data-type>
+      </column>
+      <column id="117" parent="16" name="createdAt">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="118" parent="16" name="modifiedAt">
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="119" parent="16" name="reset">
+        <mandatory>1</mandatory>
+        <data-type>char(1)</data-type>
+      </column>
+      <index id="120" parent="16" name="usersId">
+        <columns>usersId</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="121" parent="16" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="122" parent="17" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="123" parent="17" name="usersId">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="124" parent="17" name="ipAddress">
+        <mandatory>1</mandatory>
+        <data-type>char(15)</data-type>
+      </column>
+      <column id="125" parent="17" name="userAgent">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <index id="126" parent="17" name="usersId">
+        <columns>usersId</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="127" parent="17" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="128" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="129" parent="18" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="130" parent="18" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="131" parent="18" name="password">
+        <mandatory>1</mandatory>
+        <data-type>char(60)</data-type>
+      </column>
+      <column id="132" parent="18" name="mustChangePassword">
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="133" parent="18" name="profilesId">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="134" parent="18" name="banned">
+        <mandatory>1</mandatory>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="135" parent="18" name="suspended">
+        <mandatory>1</mandatory>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="136" parent="18" name="active">
+        <data-type>char(1)</data-type>
+      </column>
+      <index id="137" parent="18" name="profilesId">
+        <columns>profilesId</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="138" parent="18" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="139" parent="19" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="140" parent="19" name="id_cliente">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="141" parent="19" name="nome">
+        <mandatory>1</mandatory>
+        <data-type>varchar(70)</data-type>
+      </column>
+      <column id="142" parent="19" name="user">
+        <data-type>varchar(70)</data-type>
+      </column>
+      <column id="143" parent="19" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(70)</data-type>
+      </column>
+      <column id="144" parent="19" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="145" parent="19" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="146" parent="20" name="matricula">
+        <mandatory>1</mandatory>
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="147" parent="20" name="modelo">
+        <mandatory>1</mandatory>
+        <data-type>varchar(8)</data-type>
+      </column>
+      <column id="148" parent="20" name="n_quadro">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="149" parent="20" name="ano">
+        <data-type>int(4)</data-type>
+      </column>
+      <column id="150" parent="20" name="mes">
+        <data-type>int(2)</data-type>
+      </column>
+      <column id="151" parent="20" name="cor">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="152" parent="20" name="tamanho_pneus">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <index id="153" parent="20" name="fk_veiculos_em_modelos_idx">
+        <columns>modelo</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="154" parent="20" name="PRIMARY">
+        <columns>matricula</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
